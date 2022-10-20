@@ -1,6 +1,13 @@
 
 // Basic arithmetics, comments, whitespaces
 1;
+-1;
+-4.5 + -3;
+3 + -4;
+-4 + 6;
+5-5;
+5 -5;
+5- 5;
 5+6;
 (1);
   (1+2);
@@ -9,6 +16,11 @@
     2+(1+3);     // Whitespaces and comments
 
 // This is a comment;
+
+/*
+ Multiline
+ comment
+*/
 152 + 1;
 
 // Types
@@ -20,6 +32,8 @@
 a;
 aB;
 AB;
+_a;
+a_;
 a2134;
 //124a; // Will not work
 
