@@ -5,7 +5,7 @@ if __name__ is not None and "." in __name__:
 else:
     from echoParser import echoParser
 
-# This class defines a complete generic visitor for a parse tree produced by echoParser.
+from lib.EchoLib import *
 
 class echoVisitor(ParseTreeVisitor):
 
@@ -21,8 +21,8 @@ class echoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by echoParser#Variable.
     def visitVariable(self, ctx:echoParser.VariableContext):
-        #print(1)
-        return self.visitChildren(ctx)
+        print(1)
+        return GetVariable(ctx.getText())
 
 
     # Visit a parse tree produced by echoParser#Parent.
@@ -88,11 +88,16 @@ class echoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by echoParser#decl.
     def visitDecl(self, ctx:echoParser.DeclContext):
+        # print(9)
+        typeAssign = ctx.getText().split(':')
+        varValue = typeAssign[-1].split('=')
+        DeclareVariable(varValue[0], typeAssign[0], varValue[1])
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by echoParser#assign.
     def visitAssign(self, ctx:echoParser.AssignContext):
+        # print(10)
         return self.visitChildren(ctx)
 
 
