@@ -21,7 +21,7 @@ class echoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by echoParser#Variable.
     def visitVariable(self, ctx:echoParser.VariableContext):
-        print(1)
+        #print(1)
         return GetVariable(ctx.getText())
 
 
@@ -73,31 +73,41 @@ class echoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by echoParser#TypeNeg.
     def visitTypeNeg(self, ctx:echoParser.TypeNegContext):
+        # print(8)
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by echoParser#IntTypeNeg.
     def visitIntTypeNeg(self, ctx:echoParser.IntTypeNegContext):
+        # print(9)
         return int(ctx.getText())
 
 
     # Visit a parse tree produced by echoParser#FloatTypeNeg.
     def visitFloatTypeNeg(self, ctx:echoParser.FloatTypeNegContext):
+        # print(10)
         return float(ctx.getText())
 
 
     # Visit a parse tree produced by echoParser#decl.
     def visitDecl(self, ctx:echoParser.DeclContext):
-        # print(9)
-        typeAssign = ctx.getText().split(':')
-        varValue = typeAssign[-1].split('=')
-        DeclareVariable(varValue[0], typeAssign[0], varValue[1])
+        # print(11)
+        var = ctx.assign().VAR().getText()
+        value = self.visit(ctx.assign().expr())
+        try:
+            type = ctx.TYPE_NAME().getText()
+            print((type,var,value))
+
+            DeclareVariable(type, var, value)
+        except:
+            AssignVariable(var, value)
+
         return self.visitChildren(ctx)
 
 
     # Visit a parse tree produced by echoParser#assign.
     def visitAssign(self, ctx:echoParser.AssignContext):
-        # print(10)
+        # print(12)
         return self.visitChildren(ctx)
 
 
