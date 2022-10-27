@@ -22,7 +22,9 @@ def AssignVariable(var, value):
 types = {
 'int':int,
 'float':float,
-'string':str
+'string':str,
+'str':str,
+'bool':bool,
 }
 
 def ConvertValue(type, value):
