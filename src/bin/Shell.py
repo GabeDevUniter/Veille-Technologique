@@ -2,7 +2,7 @@ import sys
 from antlr4 import *
 from echoLexer import echoLexer
 from echoParser import echoParser
-from echoVisitor import echoVisitor
+from echoVisitorMain import echoVisitorMain
 
 EchoVersion = 0.1
 
@@ -20,7 +20,7 @@ if __name__ == "__main__":
         parser = echoParser(stream)
         tree = parser.prog()
         # evaluator
-        visitor = echoVisitor()
+        visitor = echoVisitorMain()
 
         try:
             output = visitor.visit(tree)
