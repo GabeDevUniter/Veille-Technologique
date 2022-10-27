@@ -2,11 +2,22 @@
 variables = {}
 
 def GetVariable(var):
-    return variables[var][1]
+    try:
+        return variables[var][1]
+    except KeyError:
+        return 'Variable not defined.'
 
-def DeclareVariable(var, type, value):
+def DeclareVariable(type, var, value):
     value = ConvertValue(type, value)
     variables[var] = [type, value]
+
+def AssignVariable(var, value):
+    try:
+        value = ConvertValue(variables[var][0], value)
+        variables[var][1] = value
+    except KeyError:
+        print('Variable not defined.')
+
 
 types = {
 'int':int,
