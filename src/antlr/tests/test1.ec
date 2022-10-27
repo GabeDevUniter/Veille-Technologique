@@ -12,6 +12,9 @@
 (1);
   (1+2);
 
+    125 << 210;
+  12 >> 120 + 5 / 1;
+
 
     2+(1+3);     // Whitespaces and comments
 
@@ -45,6 +48,8 @@ int: a = 5;
 a = 5;
 int: a = b;
 b = 5 * (12552 ** 2) / 5 + 2;
+
+bool:  d = true;
 
 string: msg = "Hello World!";
 
