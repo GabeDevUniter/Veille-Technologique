@@ -51,6 +51,15 @@ b = 5 * (12552 ** 2) / 5 + 2;
 
 bool:  d = true;
 
+a += 5;
+b -= a + 2;
+c *= 5;
+d /= 0;
+e **= 2;
+
+a++;
+b--;
+
 string: msg = "Hello World!";
 
 // Strings
