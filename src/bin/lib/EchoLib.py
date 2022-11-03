@@ -7,6 +7,9 @@ def GetVariable(var):
     except KeyError:
         return 'Variable not defined.'
 
+def IsDefined(var):
+    return var in variables
+
 def DeclareVariable(type, var, value):
     value = ConvertValue(type, value)
     variables[var] = [type, value]

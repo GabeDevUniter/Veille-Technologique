@@ -10,31 +10,57 @@ else:
 
 def serializedATN():
     return [
-        4,1,22,77,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
-        6,1,0,1,0,3,0,17,8,0,1,0,1,0,4,0,21,8,0,11,0,12,0,22,1,0,1,0,1,1,
-        1,1,1,1,1,1,1,1,1,1,1,1,3,1,34,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-        1,1,1,5,1,45,8,1,10,1,12,1,48,9,1,1,2,1,2,1,2,1,2,1,2,3,2,55,8,2,
-        1,3,1,3,1,3,1,3,3,3,61,8,3,1,4,1,4,1,4,1,4,3,4,67,8,4,1,5,1,5,1,
-        5,1,5,1,6,1,6,1,6,1,6,1,6,0,1,2,7,0,2,4,6,8,10,12,0,3,1,0,2,4,1,
-        0,5,6,1,0,7,8,82,0,20,1,0,0,0,2,33,1,0,0,0,4,54,1,0,0,0,6,60,1,0,
-        0,0,8,66,1,0,0,0,10,68,1,0,0,0,12,72,1,0,0,0,14,17,3,8,4,0,15,17,
-        3,2,1,0,16,14,1,0,0,0,16,15,1,0,0,0,17,18,1,0,0,0,18,19,5,1,0,0,
-        19,21,1,0,0,0,20,16,1,0,0,0,21,22,1,0,0,0,22,20,1,0,0,0,22,23,1,
-        0,0,0,23,24,1,0,0,0,24,25,5,0,0,1,25,1,1,0,0,0,26,27,6,1,-1,0,27,
-        34,5,14,0,0,28,34,3,4,2,0,29,30,5,9,0,0,30,31,3,2,1,0,31,32,5,10,
-        0,0,32,34,1,0,0,0,33,26,1,0,0,0,33,28,1,0,0,0,33,29,1,0,0,0,34,46,
-        1,0,0,0,35,36,10,5,0,0,36,37,7,0,0,0,37,45,3,2,1,6,38,39,10,4,0,
-        0,39,40,7,1,0,0,40,45,3,2,1,5,41,42,10,2,0,0,42,43,7,2,0,0,43,45,
-        3,2,1,3,44,35,1,0,0,0,44,38,1,0,0,0,44,41,1,0,0,0,45,48,1,0,0,0,
-        46,44,1,0,0,0,46,47,1,0,0,0,47,3,1,0,0,0,48,46,1,0,0,0,49,55,5,15,
-        0,0,50,55,5,16,0,0,51,55,5,17,0,0,52,55,5,18,0,0,53,55,3,6,3,0,54,
-        49,1,0,0,0,54,50,1,0,0,0,54,51,1,0,0,0,54,52,1,0,0,0,54,53,1,0,0,
-        0,55,5,1,0,0,0,56,57,5,6,0,0,57,61,5,15,0,0,58,59,5,6,0,0,59,61,
-        5,16,0,0,60,56,1,0,0,0,60,58,1,0,0,0,61,7,1,0,0,0,62,63,5,13,0,0,
-        63,64,5,11,0,0,64,67,3,10,5,0,65,67,3,12,6,0,66,62,1,0,0,0,66,65,
-        1,0,0,0,67,9,1,0,0,0,68,69,5,14,0,0,69,70,5,12,0,0,70,71,3,2,1,0,
-        71,11,1,0,0,0,72,73,5,14,0,0,73,74,5,12,0,0,74,75,3,2,1,0,75,13,
-        1,0,0,0,8,16,22,33,44,46,54,60,66
+        4,1,48,147,2,0,7,0,2,1,7,1,2,2,7,2,2,3,7,3,2,4,7,4,2,5,7,5,2,6,7,
+        6,2,7,7,7,2,8,7,8,2,9,7,9,2,10,7,10,1,0,1,0,1,0,1,0,1,0,1,0,1,0,
+        3,0,30,8,0,4,0,32,8,0,11,0,12,0,33,1,0,1,0,1,1,1,1,1,1,1,1,1,1,1,
+        1,1,1,1,1,3,1,46,8,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+        1,1,1,1,1,1,1,1,5,1,63,8,1,10,1,12,1,66,9,1,1,2,1,2,1,2,1,2,1,2,
+        1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,1,2,
+        1,2,3,2,90,8,2,1,3,1,3,1,3,3,3,95,8,3,1,4,1,4,1,4,3,4,100,8,4,1,
+        5,1,5,1,5,1,5,3,5,106,8,5,1,6,1,6,1,6,1,6,3,6,112,8,6,1,7,1,7,1,
+        7,1,7,1,8,1,8,1,8,1,8,1,8,1,8,1,8,1,8,3,8,126,8,8,1,9,1,9,1,10,1,
+        10,1,10,1,10,1,10,5,10,135,8,10,10,10,12,10,138,9,10,5,10,140,8,
+        10,10,10,12,10,143,9,10,1,10,1,10,1,10,0,1,2,11,0,2,4,6,8,10,12,
+        14,16,18,20,0,6,1,0,2,4,1,0,5,6,1,0,7,8,1,0,9,14,1,0,15,16,2,0,30,
+        30,33,37,164,0,31,1,0,0,0,2,45,1,0,0,0,4,89,1,0,0,0,6,94,1,0,0,0,
+        8,99,1,0,0,0,10,105,1,0,0,0,12,111,1,0,0,0,14,113,1,0,0,0,16,125,
+        1,0,0,0,18,127,1,0,0,0,20,129,1,0,0,0,22,23,3,12,6,0,23,24,5,1,0,
+        0,24,30,1,0,0,0,25,26,3,2,1,0,26,27,5,1,0,0,27,30,1,0,0,0,28,30,
+        3,4,2,0,29,22,1,0,0,0,29,25,1,0,0,0,29,28,1,0,0,0,30,32,1,0,0,0,
+        31,29,1,0,0,0,32,33,1,0,0,0,33,31,1,0,0,0,33,34,1,0,0,0,34,35,1,
+        0,0,0,35,36,5,0,0,1,36,1,1,0,0,0,37,38,6,1,-1,0,38,46,3,20,10,0,
+        39,46,5,40,0,0,40,46,3,6,3,0,41,42,5,17,0,0,42,43,3,2,1,0,43,44,
+        5,18,0,0,44,46,1,0,0,0,45,37,1,0,0,0,45,39,1,0,0,0,45,40,1,0,0,0,
+        45,41,1,0,0,0,46,64,1,0,0,0,47,48,10,7,0,0,48,49,7,0,0,0,49,63,3,
+        2,1,8,50,51,10,6,0,0,51,52,7,1,0,0,52,63,3,2,1,7,53,54,10,4,0,0,
+        54,55,7,2,0,0,55,63,3,2,1,5,56,57,10,3,0,0,57,58,7,3,0,0,58,63,3,
+        2,1,4,59,60,10,2,0,0,60,61,7,4,0,0,61,63,3,2,1,3,62,47,1,0,0,0,62,
+        50,1,0,0,0,62,53,1,0,0,0,62,56,1,0,0,0,62,59,1,0,0,0,63,66,1,0,0,
+        0,64,62,1,0,0,0,64,65,1,0,0,0,65,3,1,0,0,0,66,64,1,0,0,0,67,68,5,
+        19,0,0,68,90,3,2,1,0,69,70,5,20,0,0,70,90,3,2,1,0,71,90,5,21,0,0,
+        72,90,5,22,0,0,73,74,5,23,0,0,74,75,3,14,7,0,75,76,5,24,0,0,76,77,
+        3,2,1,0,77,90,1,0,0,0,78,79,5,23,0,0,79,80,3,14,7,0,80,81,5,24,0,
+        0,81,82,3,2,1,0,82,83,5,25,0,0,83,84,3,2,1,0,84,90,1,0,0,0,85,90,
+        5,26,0,0,86,87,5,27,0,0,87,90,3,20,10,0,88,90,5,28,0,0,89,67,1,0,
+        0,0,89,69,1,0,0,0,89,71,1,0,0,0,89,72,1,0,0,0,89,73,1,0,0,0,89,78,
+        1,0,0,0,89,85,1,0,0,0,89,86,1,0,0,0,89,88,1,0,0,0,90,5,1,0,0,0,91,
+        95,3,8,4,0,92,95,5,43,0,0,93,95,5,44,0,0,94,91,1,0,0,0,94,92,1,0,
+        0,0,94,93,1,0,0,0,95,7,1,0,0,0,96,100,5,41,0,0,97,100,5,42,0,0,98,
+        100,3,10,5,0,99,96,1,0,0,0,99,97,1,0,0,0,99,98,1,0,0,0,100,9,1,0,
+        0,0,101,102,5,6,0,0,102,106,5,41,0,0,103,104,5,6,0,0,104,106,5,42,
+        0,0,105,101,1,0,0,0,105,103,1,0,0,0,106,11,1,0,0,0,107,108,5,39,
+        0,0,108,109,5,29,0,0,109,112,3,14,7,0,110,112,3,16,8,0,111,107,1,
+        0,0,0,111,110,1,0,0,0,112,13,1,0,0,0,113,114,5,40,0,0,114,115,5,
+        30,0,0,115,116,3,2,1,0,116,15,1,0,0,0,117,118,5,40,0,0,118,119,3,
+        18,9,0,119,120,3,2,1,0,120,126,1,0,0,0,121,122,5,40,0,0,122,126,
+        5,31,0,0,123,124,5,40,0,0,124,126,5,32,0,0,125,117,1,0,0,0,125,121,
+        1,0,0,0,125,123,1,0,0,0,126,17,1,0,0,0,127,128,7,5,0,0,128,19,1,
+        0,0,0,129,130,5,40,0,0,130,141,5,17,0,0,131,136,3,2,1,0,132,133,
+        5,38,0,0,133,135,3,2,1,0,134,132,1,0,0,0,135,138,1,0,0,0,136,134,
+        1,0,0,0,136,137,1,0,0,0,137,140,1,0,0,0,138,136,1,0,0,0,139,131,
+        1,0,0,0,140,143,1,0,0,0,141,139,1,0,0,0,141,142,1,0,0,0,142,144,
+        1,0,0,0,143,141,1,0,0,0,144,145,5,18,0,0,145,21,1,0,0,0,13,29,33,
+        45,62,64,89,94,99,105,111,125,136,141
     ]
 
 class echoParser ( Parser ):
@@ -48,24 +74,39 @@ class echoParser ( Parser ):
     sharedContextCache = PredictionContextCache()
 
     literalNames = [ "<INVALID>", "';'", "'*'", "'/'", "'**'", "'+'", "'-'", 
-                     "'<<'", "'>>'", "'('", "')'", "':'", "'='" ]
+                     "'<<'", "'>>'", "'=='", "'<'", "'<='", "'>'", "'>='", 
+                     "'!='", "'&&'", "'||'", "'('", "')'", "'if'", "'elif'", 
+                     "'else'", "'endif'", "'for'", "'to'", "'next'", "'endfor'", 
+                     "'function'", "'endfunction'", "':'", "'='", "'++'", 
+                     "'--'", "'+='", "'-='", "'*='", "'/='", "'**='", "','" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "TYPE_NAME", "VAR", "INT", "FLOAT", "STRING", 
-                      "BOOL", "COMMENT", "MULTICOMMENT", "NEWLINE", "WS" ]
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
+                      "<INVALID>", "<INVALID>", "<INVALID>", "TYPE_NAME", 
+                      "VAR", "INT", "FLOAT", "STRING", "BOOL", "COMMENT", 
+                      "MULTICOMMENT", "NEWLINE", "WS" ]
 
     RULE_prog = 0
     RULE_expr = 1
-    RULE_type = 2
-    RULE_type_neg = 3
-    RULE_decl = 4
-    RULE_assign_new = 5
-    RULE_assign = 6
+    RULE_block = 2
+    RULE_type = 3
+    RULE_type_num = 4
+    RULE_type_neg = 5
+    RULE_decl = 6
+    RULE_assign_new = 7
+    RULE_assign = 8
+    RULE_assign_op = 9
+    RULE_func = 10
 
-    ruleNames =  [ "prog", "expr", "type", "type_neg", "decl", "assign_new", 
-                   "assign" ]
+    ruleNames =  [ "prog", "expr", "block", "type", "type_num", "type_neg", 
+                   "decl", "assign_new", "assign", "assign_op", "func" ]
 
     EOF = Token.EOF
     T__0=1
@@ -80,16 +121,42 @@ class echoParser ( Parser ):
     T__9=10
     T__10=11
     T__11=12
-    TYPE_NAME=13
-    VAR=14
-    INT=15
-    FLOAT=16
-    STRING=17
-    BOOL=18
-    COMMENT=19
-    MULTICOMMENT=20
-    NEWLINE=21
-    WS=22
+    T__12=13
+    T__13=14
+    T__14=15
+    T__15=16
+    T__16=17
+    T__17=18
+    T__18=19
+    T__19=20
+    T__20=21
+    T__21=22
+    T__22=23
+    T__23=24
+    T__24=25
+    T__25=26
+    T__26=27
+    T__27=28
+    T__28=29
+    T__29=30
+    T__30=31
+    T__31=32
+    T__32=33
+    T__33=34
+    T__34=35
+    T__35=36
+    T__36=37
+    T__37=38
+    TYPE_NAME=39
+    VAR=40
+    INT=41
+    FLOAT=42
+    STRING=43
+    BOOL=44
+    COMMENT=45
+    MULTICOMMENT=46
+    NEWLINE=47
+    WS=48
 
     def __init__(self, input:TokenStream, output:TextIO = sys.stdout):
         super().__init__(input, output)
@@ -124,6 +191,13 @@ class echoParser ( Parser ):
                 return self.getTypedRuleContext(echoParser.ExprContext,i)
 
 
+        def block(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(echoParser.BlockContext)
+            else:
+                return self.getTypedRuleContext(echoParser.BlockContext,i)
+
+
         def getRuleIndex(self):
             return echoParser.RULE_prog
 
@@ -143,33 +217,40 @@ class echoParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 20 
+            self.state = 31 
             self._errHandler.sync(self)
             _la = self._input.LA(1)
             while True:
-                self.state = 16
+                self.state = 29
                 self._errHandler.sync(self)
                 la_ = self._interp.adaptivePredict(self._input,0,self._ctx)
                 if la_ == 1:
-                    self.state = 14
+                    self.state = 22
                     self.decl()
+                    self.state = 23
+                    self.match(echoParser.T__0)
                     pass
 
                 elif la_ == 2:
-                    self.state = 15
+                    self.state = 25
                     self.expr(0)
+                    self.state = 26
+                    self.match(echoParser.T__0)
+                    pass
+
+                elif la_ == 3:
+                    self.state = 28
+                    self.block()
                     pass
 
 
-                self.state = 18
-                self.match(echoParser.T__0)
-                self.state = 22 
+                self.state = 33 
                 self._errHandler.sync(self)
                 _la = self._input.LA(1)
-                if not (((_la) & ~0x3f) == 0 and ((1 << _la) & 516672) != 0):
+                if not (((_la) & ~0x3f) == 0 and ((1 << _la) & 34635102421056) != 0):
                     break
 
-            self.state = 24
+            self.state = 35
             self.match(echoParser.EOF)
         except RecognitionException as re:
             localctx.exception = re
@@ -194,6 +275,23 @@ class echoParser ( Parser ):
      
         def copyFrom(self, ctx:ParserRuleContext):
             super().copyFrom(ctx)
+
+
+    class FuncCallContext(ExprContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.ExprContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def func(self):
+            return self.getTypedRuleContext(echoParser.FuncContext,0)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFuncCall" ):
+                return visitor.visitFuncCall(self)
+            else:
+                return visitor.visitChildren(self)
 
 
     class VariableContext(ExprContext):
@@ -225,6 +323,52 @@ class echoParser ( Parser ):
         def accept(self, visitor:ParseTreeVisitor):
             if hasattr( visitor, "visitParent" ):
                 return visitor.visitParent(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class CompExprContext(ExprContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.ExprContext
+            super().__init__(parser)
+            self.left = None # ExprContext
+            self.op = None # Token
+            self.right = None # ExprContext
+            self.copyFrom(ctx)
+
+        def expr(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(echoParser.ExprContext)
+            else:
+                return self.getTypedRuleContext(echoParser.ExprContext,i)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCompExpr" ):
+                return visitor.visitCompExpr(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class CompLogicContext(ExprContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.ExprContext
+            super().__init__(parser)
+            self.left = None # ExprContext
+            self.op = None # Token
+            self.right = None # ExprContext
+            self.copyFrom(ctx)
+
+        def expr(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(echoParser.ExprContext)
+            else:
+                return self.getTypedRuleContext(echoParser.ExprContext,i)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitCompLogic" ):
+                return visitor.visitCompLogic(self)
             else:
                 return visitor.visitChildren(self)
 
@@ -281,40 +425,49 @@ class echoParser ( Parser ):
         self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 33
+            self.state = 45
             self._errHandler.sync(self)
-            token = self._input.LA(1)
-            if token in [14]:
+            la_ = self._interp.adaptivePredict(self._input,2,self._ctx)
+            if la_ == 1:
+                localctx = echoParser.FuncCallContext(self, localctx)
+                self._ctx = localctx
+                _prevctx = localctx
+
+                self.state = 38
+                self.func()
+                pass
+
+            elif la_ == 2:
                 localctx = echoParser.VariableContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
-
-                self.state = 27
+                self.state = 39
                 self.match(echoParser.VAR)
                 pass
-            elif token in [6, 15, 16, 17, 18]:
+
+            elif la_ == 3:
                 localctx = echoParser.TypeExprContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
-                self.state = 28
+                self.state = 40
                 localctx.value = self.type_()
                 pass
-            elif token in [9]:
+
+            elif la_ == 4:
                 localctx = echoParser.ParentContext(self, localctx)
                 self._ctx = localctx
                 _prevctx = localctx
-                self.state = 29
-                self.match(echoParser.T__8)
-                self.state = 30
+                self.state = 41
+                self.match(echoParser.T__16)
+                self.state = 42
                 self.expr(0)
-                self.state = 31
-                self.match(echoParser.T__9)
+                self.state = 43
+                self.match(echoParser.T__17)
                 pass
-            else:
-                raise NoViableAltException(self)
+
 
             self._ctx.stop = self._input.LT(-1)
-            self.state = 46
+            self.state = 64
             self._errHandler.sync(self)
             _alt = self._interp.adaptivePredict(self._input,4,self._ctx)
             while _alt!=2 and _alt!=ATN.INVALID_ALT_NUMBER:
@@ -322,18 +475,18 @@ class echoParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    self.state = 44
+                    self.state = 62
                     self._errHandler.sync(self)
                     la_ = self._interp.adaptivePredict(self._input,3,self._ctx)
                     if la_ == 1:
                         localctx = echoParser.OpExprContext(self, echoParser.ExprContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 35
-                        if not self.precpred(self._ctx, 5):
+                        self.state = 47
+                        if not self.precpred(self._ctx, 7):
                             from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 5)")
-                        self.state = 36
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 7)")
+                        self.state = 48
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not(((_la) & ~0x3f) == 0 and ((1 << _la) & 28) != 0):
@@ -341,19 +494,19 @@ class echoParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 37
-                        localctx.right = self.expr(6)
+                        self.state = 49
+                        localctx.right = self.expr(8)
                         pass
 
                     elif la_ == 2:
                         localctx = echoParser.OpExprContext(self, echoParser.ExprContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 38
-                        if not self.precpred(self._ctx, 4):
+                        self.state = 50
+                        if not self.precpred(self._ctx, 6):
                             from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 4)")
-                        self.state = 39
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 6)")
+                        self.state = 51
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not(_la==5 or _la==6):
@@ -361,19 +514,19 @@ class echoParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 40
-                        localctx.right = self.expr(5)
+                        self.state = 52
+                        localctx.right = self.expr(7)
                         pass
 
                     elif la_ == 3:
                         localctx = echoParser.OpExprContext(self, echoParser.ExprContext(self, _parentctx, _parentState))
                         localctx.left = _prevctx
                         self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
-                        self.state = 41
-                        if not self.precpred(self._ctx, 2):
+                        self.state = 53
+                        if not self.precpred(self._ctx, 4):
                             from antlr4.error.Errors import FailedPredicateException
-                            raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
-                        self.state = 42
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 4)")
+                        self.state = 54
                         localctx.op = self._input.LT(1)
                         _la = self._input.LA(1)
                         if not(_la==7 or _la==8):
@@ -381,12 +534,52 @@ class echoParser ( Parser ):
                         else:
                             self._errHandler.reportMatch(self)
                             self.consume()
-                        self.state = 43
+                        self.state = 55
+                        localctx.right = self.expr(5)
+                        pass
+
+                    elif la_ == 4:
+                        localctx = echoParser.CompExprContext(self, echoParser.ExprContext(self, _parentctx, _parentState))
+                        localctx.left = _prevctx
+                        self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
+                        self.state = 56
+                        if not self.precpred(self._ctx, 3):
+                            from antlr4.error.Errors import FailedPredicateException
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 3)")
+                        self.state = 57
+                        localctx.op = self._input.LT(1)
+                        _la = self._input.LA(1)
+                        if not(((_la) & ~0x3f) == 0 and ((1 << _la) & 32256) != 0):
+                            localctx.op = self._errHandler.recoverInline(self)
+                        else:
+                            self._errHandler.reportMatch(self)
+                            self.consume()
+                        self.state = 58
+                        localctx.right = self.expr(4)
+                        pass
+
+                    elif la_ == 5:
+                        localctx = echoParser.CompLogicContext(self, echoParser.ExprContext(self, _parentctx, _parentState))
+                        localctx.left = _prevctx
+                        self.pushNewRecursionContext(localctx, _startState, self.RULE_expr)
+                        self.state = 59
+                        if not self.precpred(self._ctx, 2):
+                            from antlr4.error.Errors import FailedPredicateException
+                            raise FailedPredicateException(self, "self.precpred(self._ctx, 2)")
+                        self.state = 60
+                        localctx.op = self._input.LT(1)
+                        _la = self._input.LA(1)
+                        if not(_la==15 or _la==16):
+                            localctx.op = self._errHandler.recoverInline(self)
+                        else:
+                            self._errHandler.reportMatch(self)
+                            self.consume()
+                        self.state = 61
                         localctx.right = self.expr(3)
                         pass
 
              
-                self.state = 48
+                self.state = 66
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,4,self._ctx)
 
@@ -396,6 +589,282 @@ class echoParser ( Parser ):
             self._errHandler.recover(self, re)
         finally:
             self.unrollRecursionContexts(_parentctx)
+        return localctx
+
+
+    class BlockContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+
+        def getRuleIndex(self):
+            return echoParser.RULE_block
+
+     
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
+
+
+
+    class ForNextBlockContext(BlockContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.BlockContext
+            super().__init__(parser)
+            self.iter_ = None # Assign_newContext
+            self.max_ = None # ExprContext
+            self.next_ = None # ExprContext
+            self.copyFrom(ctx)
+
+        def assign_new(self):
+            return self.getTypedRuleContext(echoParser.Assign_newContext,0)
+
+        def expr(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(echoParser.ExprContext)
+            else:
+                return self.getTypedRuleContext(echoParser.ExprContext,i)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitForNextBlock" ):
+                return visitor.visitForNextBlock(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class EndIfBlockContext(BlockContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.BlockContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitEndIfBlock" ):
+                return visitor.visitEndIfBlock(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class ForBlockContext(BlockContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.BlockContext
+            super().__init__(parser)
+            self.iter_ = None # Assign_newContext
+            self.max_ = None # ExprContext
+            self.copyFrom(ctx)
+
+        def assign_new(self):
+            return self.getTypedRuleContext(echoParser.Assign_newContext,0)
+
+        def expr(self):
+            return self.getTypedRuleContext(echoParser.ExprContext,0)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitForBlock" ):
+                return visitor.visitForBlock(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class IfBlockContext(BlockContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.BlockContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def expr(self):
+            return self.getTypedRuleContext(echoParser.ExprContext,0)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitIfBlock" ):
+                return visitor.visitIfBlock(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class ElifBlockContext(BlockContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.BlockContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def expr(self):
+            return self.getTypedRuleContext(echoParser.ExprContext,0)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitElifBlock" ):
+                return visitor.visitElifBlock(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class EndFunctionBlockContext(BlockContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.BlockContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitEndFunctionBlock" ):
+                return visitor.visitEndFunctionBlock(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class EndForBlockContext(BlockContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.BlockContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitEndForBlock" ):
+                return visitor.visitEndForBlock(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class FunctionBlockContext(BlockContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.BlockContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def func(self):
+            return self.getTypedRuleContext(echoParser.FuncContext,0)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFunctionBlock" ):
+                return visitor.visitFunctionBlock(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class ElseBlockContext(BlockContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.BlockContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitElseBlock" ):
+                return visitor.visitElseBlock(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+    def block(self):
+
+        localctx = echoParser.BlockContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 4, self.RULE_block)
+        try:
+            self.state = 89
+            self._errHandler.sync(self)
+            la_ = self._interp.adaptivePredict(self._input,5,self._ctx)
+            if la_ == 1:
+                localctx = echoParser.IfBlockContext(self, localctx)
+                self.enterOuterAlt(localctx, 1)
+                self.state = 67
+                self.match(echoParser.T__18)
+                self.state = 68
+                self.expr(0)
+                pass
+
+            elif la_ == 2:
+                localctx = echoParser.ElifBlockContext(self, localctx)
+                self.enterOuterAlt(localctx, 2)
+                self.state = 69
+                self.match(echoParser.T__19)
+                self.state = 70
+                self.expr(0)
+                pass
+
+            elif la_ == 3:
+                localctx = echoParser.ElseBlockContext(self, localctx)
+                self.enterOuterAlt(localctx, 3)
+                self.state = 71
+                self.match(echoParser.T__20)
+                pass
+
+            elif la_ == 4:
+                localctx = echoParser.EndIfBlockContext(self, localctx)
+                self.enterOuterAlt(localctx, 4)
+                self.state = 72
+                self.match(echoParser.T__21)
+                pass
+
+            elif la_ == 5:
+                localctx = echoParser.ForBlockContext(self, localctx)
+                self.enterOuterAlt(localctx, 5)
+                self.state = 73
+                self.match(echoParser.T__22)
+                self.state = 74
+                localctx.iter_ = self.assign_new()
+                self.state = 75
+                self.match(echoParser.T__23)
+                self.state = 76
+                localctx.max_ = self.expr(0)
+                pass
+
+            elif la_ == 6:
+                localctx = echoParser.ForNextBlockContext(self, localctx)
+                self.enterOuterAlt(localctx, 6)
+                self.state = 78
+                self.match(echoParser.T__22)
+                self.state = 79
+                localctx.iter_ = self.assign_new()
+                self.state = 80
+                self.match(echoParser.T__23)
+                self.state = 81
+                localctx.max_ = self.expr(0)
+                self.state = 82
+                self.match(echoParser.T__24)
+                self.state = 83
+                localctx.next_ = self.expr(0)
+                pass
+
+            elif la_ == 7:
+                localctx = echoParser.EndForBlockContext(self, localctx)
+                self.enterOuterAlt(localctx, 7)
+                self.state = 85
+                self.match(echoParser.T__25)
+                pass
+
+            elif la_ == 8:
+                localctx = echoParser.FunctionBlockContext(self, localctx)
+                self.enterOuterAlt(localctx, 8)
+                self.state = 86
+                self.match(echoParser.T__26)
+                self.state = 87
+                self.func()
+                pass
+
+            elif la_ == 9:
+                localctx = echoParser.EndFunctionBlockContext(self, localctx)
+                self.enterOuterAlt(localctx, 9)
+                self.state = 88
+                self.match(echoParser.T__27)
+                pass
+
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
         return localctx
 
 
@@ -432,6 +901,23 @@ class echoParser ( Parser ):
                 return visitor.visitChildren(self)
 
 
+    class NumTypeContext(TypeContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.TypeContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def type_num(self):
+            return self.getTypedRuleContext(echoParser.Type_numContext,0)
+
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitNumType" ):
+                return visitor.visitNumType(self)
+            else:
+                return visitor.visitChildren(self)
+
+
     class StringTypeContext(TypeContext):
 
         def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.TypeContext
@@ -448,9 +934,65 @@ class echoParser ( Parser ):
                 return visitor.visitChildren(self)
 
 
-    class TypeNegContext(TypeContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.TypeContext
+    def type_(self):
+
+        localctx = echoParser.TypeContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 6, self.RULE_type)
+        try:
+            self.state = 94
+            self._errHandler.sync(self)
+            token = self._input.LA(1)
+            if token in [6, 41, 42]:
+                localctx = echoParser.NumTypeContext(self, localctx)
+                self.enterOuterAlt(localctx, 1)
+                self.state = 91
+                self.type_num()
+                pass
+            elif token in [43]:
+                localctx = echoParser.StringTypeContext(self, localctx)
+                self.enterOuterAlt(localctx, 2)
+                self.state = 92
+                self.match(echoParser.STRING)
+                pass
+            elif token in [44]:
+                localctx = echoParser.BoolTypeContext(self, localctx)
+                self.enterOuterAlt(localctx, 3)
+                self.state = 93
+                self.match(echoParser.BOOL)
+                pass
+            else:
+                raise NoViableAltException(self)
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class Type_numContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+
+        def getRuleIndex(self):
+            return echoParser.RULE_type_num
+
+     
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
+
+
+
+    class TypeNegContext(Type_numContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.Type_numContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -465,9 +1007,9 @@ class echoParser ( Parser ):
                 return visitor.visitChildren(self)
 
 
-    class IntTypeContext(TypeContext):
+    class IntTypeContext(Type_numContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.TypeContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.Type_numContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -481,9 +1023,9 @@ class echoParser ( Parser ):
                 return visitor.visitChildren(self)
 
 
-    class FloatTypeContext(TypeContext):
+    class FloatTypeContext(Type_numContext):
 
-        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.TypeContext
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.Type_numContext
             super().__init__(parser)
             self.copyFrom(ctx)
 
@@ -498,42 +1040,30 @@ class echoParser ( Parser ):
 
 
 
-    def type_(self):
+    def type_num(self):
 
-        localctx = echoParser.TypeContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 4, self.RULE_type)
+        localctx = echoParser.Type_numContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 8, self.RULE_type_num)
         try:
-            self.state = 54
+            self.state = 99
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [15]:
+            if token in [41]:
                 localctx = echoParser.IntTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 49
+                self.state = 96
                 self.match(echoParser.INT)
                 pass
-            elif token in [16]:
+            elif token in [42]:
                 localctx = echoParser.FloatTypeContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 50
+                self.state = 97
                 self.match(echoParser.FLOAT)
-                pass
-            elif token in [17]:
-                localctx = echoParser.StringTypeContext(self, localctx)
-                self.enterOuterAlt(localctx, 3)
-                self.state = 51
-                self.match(echoParser.STRING)
-                pass
-            elif token in [18]:
-                localctx = echoParser.BoolTypeContext(self, localctx)
-                self.enterOuterAlt(localctx, 4)
-                self.state = 52
-                self.match(echoParser.BOOL)
                 pass
             elif token in [6]:
                 localctx = echoParser.TypeNegContext(self, localctx)
-                self.enterOuterAlt(localctx, 5)
-                self.state = 53
+                self.enterOuterAlt(localctx, 3)
+                self.state = 98
                 self.type_neg()
                 pass
             else:
@@ -601,26 +1131,26 @@ class echoParser ( Parser ):
     def type_neg(self):
 
         localctx = echoParser.Type_negContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 6, self.RULE_type_neg)
+        self.enterRule(localctx, 10, self.RULE_type_neg)
         try:
-            self.state = 60
+            self.state = 105
             self._errHandler.sync(self)
-            la_ = self._interp.adaptivePredict(self._input,6,self._ctx)
+            la_ = self._interp.adaptivePredict(self._input,8,self._ctx)
             if la_ == 1:
                 localctx = echoParser.IntTypeNegContext(self, localctx)
                 self.enterOuterAlt(localctx, 1)
-                self.state = 56
+                self.state = 101
                 self.match(echoParser.T__5)
-                self.state = 57
+                self.state = 102
                 self.match(echoParser.INT)
                 pass
 
             elif la_ == 2:
                 localctx = echoParser.FloatTypeNegContext(self, localctx)
                 self.enterOuterAlt(localctx, 2)
-                self.state = 58
+                self.state = 103
                 self.match(echoParser.T__5)
-                self.state = 59
+                self.state = 104
                 self.match(echoParser.FLOAT)
                 pass
 
@@ -667,23 +1197,23 @@ class echoParser ( Parser ):
     def decl(self):
 
         localctx = echoParser.DeclContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 8, self.RULE_decl)
+        self.enterRule(localctx, 12, self.RULE_decl)
         try:
-            self.state = 66
+            self.state = 111
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [13]:
+            if token in [39]:
                 self.enterOuterAlt(localctx, 1)
-                self.state = 62
+                self.state = 107
                 self.match(echoParser.TYPE_NAME)
-                self.state = 63
-                self.match(echoParser.T__10)
-                self.state = 64
+                self.state = 108
+                self.match(echoParser.T__28)
+                self.state = 109
                 self.assign_new()
                 pass
-            elif token in [14]:
+            elif token in [40]:
                 self.enterOuterAlt(localctx, 2)
-                self.state = 65
+                self.state = 110
                 self.assign()
                 pass
             else:
@@ -727,14 +1257,14 @@ class echoParser ( Parser ):
     def assign_new(self):
 
         localctx = echoParser.Assign_newContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 10, self.RULE_assign_new)
+        self.enterRule(localctx, 14, self.RULE_assign_new)
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 68
+            self.state = 113
             self.match(echoParser.VAR)
-            self.state = 69
-            self.match(echoParser.T__11)
-            self.state = 70
+            self.state = 114
+            self.match(echoParser.T__29)
+            self.state = 115
             self.expr(0)
         except RecognitionException as re:
             localctx.exception = re
@@ -752,37 +1282,225 @@ class echoParser ( Parser ):
             super().__init__(parent, invokingState)
             self.parser = parser
 
+
+        def getRuleIndex(self):
+            return echoParser.RULE_assign
+
+     
+        def copyFrom(self, ctx:ParserRuleContext):
+            super().copyFrom(ctx)
+
+
+
+    class AssignIncContext(AssignContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.AssignContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
         def VAR(self):
             return self.getToken(echoParser.VAR, 0)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAssignInc" ):
+                return visitor.visitAssignInc(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class AssignDecContext(AssignContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.AssignContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def VAR(self):
+            return self.getToken(echoParser.VAR, 0)
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAssignDec" ):
+                return visitor.visitAssignDec(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+    class AssignRegularContext(AssignContext):
+
+        def __init__(self, parser, ctx:ParserRuleContext): # actually a echoParser.AssignContext
+            super().__init__(parser)
+            self.copyFrom(ctx)
+
+        def VAR(self):
+            return self.getToken(echoParser.VAR, 0)
+        def assign_op(self):
+            return self.getTypedRuleContext(echoParser.Assign_opContext,0)
 
         def expr(self):
             return self.getTypedRuleContext(echoParser.ExprContext,0)
 
 
-        def getRuleIndex(self):
-            return echoParser.RULE_assign
-
         def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitAssign" ):
-                return visitor.visitAssign(self)
+            if hasattr( visitor, "visitAssignRegular" ):
+                return visitor.visitAssignRegular(self)
             else:
                 return visitor.visitChildren(self)
-
 
 
 
     def assign(self):
 
         localctx = echoParser.AssignContext(self, self._ctx, self.state)
-        self.enterRule(localctx, 12, self.RULE_assign)
+        self.enterRule(localctx, 16, self.RULE_assign)
+        try:
+            self.state = 125
+            self._errHandler.sync(self)
+            la_ = self._interp.adaptivePredict(self._input,10,self._ctx)
+            if la_ == 1:
+                localctx = echoParser.AssignRegularContext(self, localctx)
+                self.enterOuterAlt(localctx, 1)
+                self.state = 117
+                self.match(echoParser.VAR)
+                self.state = 118
+                self.assign_op()
+                self.state = 119
+                self.expr(0)
+                pass
+
+            elif la_ == 2:
+                localctx = echoParser.AssignIncContext(self, localctx)
+                self.enterOuterAlt(localctx, 2)
+                self.state = 121
+                self.match(echoParser.VAR)
+                self.state = 122
+                self.match(echoParser.T__30)
+                pass
+
+            elif la_ == 3:
+                localctx = echoParser.AssignDecContext(self, localctx)
+                self.enterOuterAlt(localctx, 3)
+                self.state = 123
+                self.match(echoParser.VAR)
+                self.state = 124
+                self.match(echoParser.T__31)
+                pass
+
+
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class Assign_opContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+
+        def getRuleIndex(self):
+            return echoParser.RULE_assign_op
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitAssign_op" ):
+                return visitor.visitAssign_op(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def assign_op(self):
+
+        localctx = echoParser.Assign_opContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 18, self.RULE_assign_op)
+        self._la = 0 # Token type
         try:
             self.enterOuterAlt(localctx, 1)
-            self.state = 72
+            self.state = 127
+            _la = self._input.LA(1)
+            if not(((_la) & ~0x3f) == 0 and ((1 << _la) & 267361714176) != 0):
+                self._errHandler.recoverInline(self)
+            else:
+                self._errHandler.reportMatch(self)
+                self.consume()
+        except RecognitionException as re:
+            localctx.exception = re
+            self._errHandler.reportError(self, re)
+            self._errHandler.recover(self, re)
+        finally:
+            self.exitRule()
+        return localctx
+
+
+    class FuncContext(ParserRuleContext):
+        __slots__ = 'parser'
+
+        def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
+            super().__init__(parent, invokingState)
+            self.parser = parser
+
+        def VAR(self):
+            return self.getToken(echoParser.VAR, 0)
+
+        def expr(self, i:int=None):
+            if i is None:
+                return self.getTypedRuleContexts(echoParser.ExprContext)
+            else:
+                return self.getTypedRuleContext(echoParser.ExprContext,i)
+
+
+        def getRuleIndex(self):
+            return echoParser.RULE_func
+
+        def accept(self, visitor:ParseTreeVisitor):
+            if hasattr( visitor, "visitFunc" ):
+                return visitor.visitFunc(self)
+            else:
+                return visitor.visitChildren(self)
+
+
+
+
+    def func(self):
+
+        localctx = echoParser.FuncContext(self, self._ctx, self.state)
+        self.enterRule(localctx, 20, self.RULE_func)
+        self._la = 0 # Token type
+        try:
+            self.enterOuterAlt(localctx, 1)
+            self.state = 129
             self.match(echoParser.VAR)
-            self.state = 73
-            self.match(echoParser.T__11)
-            self.state = 74
-            self.expr(0)
+            self.state = 130
+            self.match(echoParser.T__16)
+            self.state = 141
+            self._errHandler.sync(self)
+            _la = self._input.LA(1)
+            while ((_la) & ~0x3f) == 0 and ((1 << _la) & 34084860592192) != 0:
+                self.state = 131
+                self.expr(0)
+                self.state = 136
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+                while _la==38:
+                    self.state = 132
+                    self.match(echoParser.T__37)
+                    self.state = 133
+                    self.expr(0)
+                    self.state = 138
+                    self._errHandler.sync(self)
+                    _la = self._input.LA(1)
+
+                self.state = 143
+                self._errHandler.sync(self)
+                _la = self._input.LA(1)
+
+            self.state = 144
+            self.match(echoParser.T__17)
         except RecognitionException as re:
             localctx.exception = re
             self._errHandler.reportError(self, re)
@@ -805,14 +1523,22 @@ class echoParser ( Parser ):
 
     def expr_sempred(self, localctx:ExprContext, predIndex:int):
             if predIndex == 0:
-                return self.precpred(self._ctx, 5)
+                return self.precpred(self._ctx, 7)
          
 
             if predIndex == 1:
-                return self.precpred(self._ctx, 4)
+                return self.precpred(self._ctx, 6)
          
 
             if predIndex == 2:
+                return self.precpred(self._ctx, 4)
+         
+
+            if predIndex == 3:
+                return self.precpred(self._ctx, 3)
+         
+
+            if predIndex == 4:
                 return self.precpred(self._ctx, 2)
          
 

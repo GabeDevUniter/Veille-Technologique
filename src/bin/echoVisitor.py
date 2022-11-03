@@ -14,6 +14,11 @@ class echoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by echoParser#FuncCall.
+    def visitFuncCall(self, ctx:echoParser.FuncCallContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by echoParser#Variable.
     def visitVariable(self, ctx:echoParser.VariableContext):
         return self.visitChildren(ctx)
@@ -21,6 +26,16 @@ class echoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by echoParser#Parent.
     def visitParent(self, ctx:echoParser.ParentContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#CompExpr.
+    def visitCompExpr(self, ctx:echoParser.CompExprContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#CompLogic.
+    def visitCompLogic(self, ctx:echoParser.CompLogicContext):
         return self.visitChildren(ctx)
 
 
@@ -34,13 +49,53 @@ class echoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by echoParser#IntType.
-    def visitIntType(self, ctx:echoParser.IntTypeContext):
+    # Visit a parse tree produced by echoParser#IfBlock.
+    def visitIfBlock(self, ctx:echoParser.IfBlockContext):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by echoParser#FloatType.
-    def visitFloatType(self, ctx:echoParser.FloatTypeContext):
+    # Visit a parse tree produced by echoParser#ElifBlock.
+    def visitElifBlock(self, ctx:echoParser.ElifBlockContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#ElseBlock.
+    def visitElseBlock(self, ctx:echoParser.ElseBlockContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#EndIfBlock.
+    def visitEndIfBlock(self, ctx:echoParser.EndIfBlockContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#ForBlock.
+    def visitForBlock(self, ctx:echoParser.ForBlockContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#ForNextBlock.
+    def visitForNextBlock(self, ctx:echoParser.ForNextBlockContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#EndForBlock.
+    def visitEndForBlock(self, ctx:echoParser.EndForBlockContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#FunctionBlock.
+    def visitFunctionBlock(self, ctx:echoParser.FunctionBlockContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#EndFunctionBlock.
+    def visitEndFunctionBlock(self, ctx:echoParser.EndFunctionBlockContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#NumType.
+    def visitNumType(self, ctx:echoParser.NumTypeContext):
         return self.visitChildren(ctx)
 
 
@@ -51,6 +106,16 @@ class echoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by echoParser#BoolType.
     def visitBoolType(self, ctx:echoParser.BoolTypeContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#IntType.
+    def visitIntType(self, ctx:echoParser.IntTypeContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#FloatType.
+    def visitFloatType(self, ctx:echoParser.FloatTypeContext):
         return self.visitChildren(ctx)
 
 
@@ -79,8 +144,28 @@ class echoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by echoParser#assign.
-    def visitAssign(self, ctx:echoParser.AssignContext):
+    # Visit a parse tree produced by echoParser#AssignRegular.
+    def visitAssignRegular(self, ctx:echoParser.AssignRegularContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#AssignInc.
+    def visitAssignInc(self, ctx:echoParser.AssignIncContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#AssignDec.
+    def visitAssignDec(self, ctx:echoParser.AssignDecContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#assign_op.
+    def visitAssign_op(self, ctx:echoParser.Assign_opContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#func.
+    def visitFunc(self, ctx:echoParser.FuncContext):
         return self.visitChildren(ctx)
 
 
