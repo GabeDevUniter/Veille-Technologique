@@ -5,6 +5,7 @@ prog: ((decl ';' | expr ';' | block))+ EOF;
 
 /**-------EXPRESSION-------**/
 expr: func # FuncCall
+    | return # FuncReturn
     | VAR # Variable
     | left=expr op=('*' | '/' | '**') right=expr # OpExpr
     | left=expr op=('+' | '-') right=expr # OpExpr
@@ -54,8 +55,9 @@ assign: VAR assign_op expr # AssignRegular
 assign_op: '=' | '+=' | '-=' | '*=' | '/=' | '**=';
 
 
-/**-------FUNCTION CALL-------**/
+/**-------FUNCTIONS-------**/
 func: VAR '(' (expr (',' expr)*)* ')';
+return: 'return' (expr)*;
 
 
 /**-------VARIABLES-------**/

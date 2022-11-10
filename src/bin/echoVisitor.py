@@ -49,6 +49,11 @@ class echoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by echoParser#FuncReturn.
+    def visitFuncReturn(self, ctx:echoParser.FuncReturnContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by echoParser#IfBlock.
     def visitIfBlock(self, ctx:echoParser.IfBlockContext):
         return self.visitChildren(ctx)
@@ -166,6 +171,11 @@ class echoVisitor(ParseTreeVisitor):
 
     # Visit a parse tree produced by echoParser#func.
     def visitFunc(self, ctx:echoParser.FuncContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#return.
+    def visitReturn(self, ctx:echoParser.ReturnContext):
         return self.visitChildren(ctx)
 
 

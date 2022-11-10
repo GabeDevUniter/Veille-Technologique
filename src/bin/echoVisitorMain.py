@@ -197,6 +197,8 @@ class echoVisitorMain(echoVisitor):
         elif assign_op == '/=': AssignVariable(var, varValue / value)
         elif assign_op == '**=': AssignVariable(var, varValue ** value)
 
+        print(GetVariable(var))
+
         return self.visitChildren(ctx)
 
 
