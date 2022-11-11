@@ -11,14 +11,80 @@ from lib.EchoLib import *
 
 class echoVisitorMain(echoVisitor):
 
-    def visitProg(self, ctx:echoParser.ProgContext):
+    def ExecuteInstruction(self, ctx):
         decl = ctx.decl()
         expr = ctx.expr()
+        block = ctx.block()
 
         if decl != []:
             self.visit(ctx.decl()[0])
             return None
+        if block != []:
+            self.visit(ctx.block()[0])
+            return None
         return self.visit(ctx.expr()[0])
+
+    # TODO : Support nested if statements where they're only executed when the root if block ends
+    def ExecuteIfStatement(self, ifscope, ifscopeIndex):
+        hasElif = 'elif' in ifscope
+        hasElse = 'else' in ifscope
+
+        cond = self.visit(ifscope[1].expr())
+
+        if(cond):
+            # if hasElif: del ifscope['elif']
+            # elif hasElse: del ifscope['else']
+
+
+            try:
+                for ins in ifscope[0]:
+                    self.ExecuteInstruction(ins)
+            except Exception as e:
+                raise
+            finally:
+                global currentScope
+                while len(currentScope) != ifscopeIndex: PopScope()
+                print('Scope is ' + str(currentScope))
+
+        else:
+            if hasElif: self.ExecuteIfStatement(ifscope['elif'], ifscopeIndex) # Recursive
+
+            elif hasElse:
+                try:
+                    for ins in ifscope['else'][0]:
+                        self.ExecuteInstruction(ins)
+
+                except Exception as e:
+                    raise
+                finally:
+                    while len(currentScope) != ifscopeIndex: PopScope()
+                    print('Scope is ' + str(currentScope))
+
+
+    def visitProg(self, ctx:echoParser.ProgContext):
+        # print(currentScope)
+
+        if currentScope[-1] == 'global' or ctx.block() != []:
+            print('-- Regular Instruction')
+            return self.ExecuteInstruction(ctx)
+        else:
+            print('-- Block Instruction')
+            scope = GetCurrentScope()
+            if 0 not in scope: scope[0] = []
+            scope[0].append(ctx)
+
+        return None
+        # decl = ctx.decl()
+        # expr = ctx.expr()
+        # block = ctx.block()
+        #
+        # if decl != []:
+        #     self.visit(ctx.decl()[0])
+        #     return None
+        # if block != []:
+        #     self.visit(ctx.block()[0])
+        #     return None
+        # return self.visit(ctx.expr()[0])
 
 
     # Visit a parse tree produced by echoParser#Variable.
@@ -59,12 +125,79 @@ class echoVisitorMain(echoVisitor):
     # Visit a parse tree produced by echoParser#IfBlock.
     def visitIfBlock(self, ctx:echoParser.IfBlockContext):
         print('#IfBlock')
+        cond = self.visit(ctx.expr())
+
+        if type(cond) != bool: raise Exception('IF statement must be a condition!')
+
+        AddScope('if')
+
+        GetCurrentScope()[1] = ctx
+
         return self.visitChildren(ctx)
 
+    # Visit a parse tree produced by echoParser#ElifBlock.
+    def visitElifBlock(self, ctx:echoParser.ElifBlockContext):
+        print('#ElifBlock')
+
+        if currentScope[-1] not in ['if', 'elif']: raise Exception('ELIF must succeed an IF or ELIF statement!')
+
+        cond = self.visit(ctx.expr())
+        if type(cond) != bool: raise Exception('IF statement must be a condition!')
+
+        AddScope('elif')
+
+        GetCurrentScope()[1] = ctx
+
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#ElseBlock.
+    def visitElseBlock(self, ctx:echoParser.ElseBlockContext):
+        print('#ElseBlock')
+
+        if currentScope[-1] not in ['if', 'elif']: raise Exception('ELSE must succeed an IF or ELIF statement!')
+
+        AddScope('else')
+
+        return self.visitChildren(ctx)
 
     # Visit a parse tree produced by echoParser#EndIfBlock.
     def visitEndIfBlock(self, ctx:echoParser.EndIfBlockContext):
         print('#EndIfBlock')
+
+        # Get the last index of 'if' in negative value
+        #ifscopeIndex = currentScope[::-1].index('if') * -1 - 1
+
+        # Last index of if
+        ifscopeIndex = len(currentScope) - currentScope[::-1].index('if') - 1
+
+        if currentScope[-1] not in ['if', 'elif', 'else']: raise Exception('ENDIF must  succeed an IF, ELIF or ELSE statement')
+
+        try:
+            ifscope = GetScopeAt(ifscopeIndex)
+
+            self.ExecuteIfStatement(ifscope, ifscopeIndex)
+            print(currentScope)
+            # hasElif = 'elif' in ifscope
+            # hasElse = 'else' in ifscope
+            #
+            # cond = self.visit(ifscope[1].ctx.expr())
+            #
+            # if(cond):
+            #     if hasElif: del ifscope['elif']
+            #     if hasElse: del ifscope['else']
+            #     currentScope = currentScope[:ifscopeIndex + 1]
+            #
+            #     for ins in GetCurrentScope()[0]:
+            #         self.ExecuteInstruction(ins)
+        except Exception as e:
+            raise
+        finally:
+            pass
+            #print('About to pop scope')
+
+            #PopScope();
+
         return self.visitChildren(ctx)
 
 
@@ -158,7 +291,7 @@ class echoVisitorMain(echoVisitor):
             var = ctx.assign_new().VAR().getText()
             value = self.visit(ctx.assign_new().expr())
             type = ctx.TYPE_NAME().getText()
-            print((type,var,value))
+            #print((type,var,value))
 
             #print('DeclareVariable()')
             DeclareVariable(type, var, value)
@@ -186,8 +319,9 @@ class echoVisitorMain(echoVisitor):
         value = self.visit(ctx.expr())
         varValue = GetVariable(var)
 
-        if not IsDefined(var):
-            print(varValue)
+        # if not IsDefined(var):
+        if varValue == None:
+            #print(varValue)
             return self.visitChildren(ctx)
 
         if assign_op == '=': AssignVariable(var, value)
@@ -197,7 +331,7 @@ class echoVisitorMain(echoVisitor):
         elif assign_op == '/=': AssignVariable(var, varValue / value)
         elif assign_op == '**=': AssignVariable(var, varValue ** value)
 
-        print(GetVariable(var))
+        #print(GetVariable(var))
 
         return self.visitChildren(ctx)
 
@@ -210,7 +344,7 @@ class echoVisitorMain(echoVisitor):
         varValue = GetVariable(var)
 
         if not IsDefined(var):
-            print(varValue)
+            #print(varValue)
             return self.visitChildren(ctx)
 
         AssignVariable(var, varValue + 1)
@@ -226,7 +360,7 @@ class echoVisitorMain(echoVisitor):
         varValue = GetVariable(var)
 
         if not IsDefined(var):
-            print(varValue)
+            #print(varValue)
             return self.visitChildren(ctx)
 
         AssignVariable(var, varValue - 1)
