@@ -7,11 +7,21 @@ scopes = {
     'global': {
         # 'if': {
         #   0:['a += 5;', 'b = a;'],
-        #   1: ctx, # For an if statement, store the condition,
+        #   1: ctx, # For an if statement, store the condition
+        #   2: scopeIndex,
         #
         #   'a':('str', 'fsfau'),
         #
         #   'b':('float',10.5),
+        # }
+        # 'for': {
+        #   0:['a += 5;', 'b = a;'],
+        #   1: 5, # For a for statement, store the iteration value
+        #   2: 10, # For a for statement, store the max value
+        #   3: 1, # For a for statement, store the step value
+        #   4: scopeIndex,
+        #
+        #   'i':('int', '0'),
         # }
         #
         # 'a':('str', 'fsfau'),
@@ -67,7 +77,7 @@ def AddScope(label):
         scopeIndex += 1
 
         if scopeIndex == len(currentScope) - 1:
-            scope[key][label] = {}
+            scope[key][label] = {0:[]}
             break
 
         scope = scope[key]
@@ -87,7 +97,8 @@ def PopScope():
 
             scope = scope[key]
 
-        currentScope.remove(currentScope[-1])
+        #currentScope.remove(currentScope[-1])
+        currentScope.pop()
         print(currentScope)
 
 
