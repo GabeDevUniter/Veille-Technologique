@@ -8,6 +8,7 @@ else:
 from echoVisitor import echoVisitor
 
 from lib.EchoLib import *
+from lib.EchoClasses import *
 
 class echoVisitorMain(echoVisitor):
 
@@ -29,10 +30,11 @@ class echoVisitorMain(echoVisitor):
         return self.visit(ctx.expr()[0])
 
     def ExecuteBlockInstructions(self, list):
+        print('Executing Block')
         for ins in list:
             if type(ins) == dict:
                 if 'if' in ins: self.ExecuteIfStatement(ins['if'], ins['if'][2])
-                if 'for' in ins: pass
+                if 'for' in ins: self.ExecuteForStatement(ins['for'], ins['for'][4])
 
             else:
                 self.ExecuteInstruction(ins)
@@ -63,40 +65,7 @@ class echoVisitorMain(echoVisitor):
         # return self.visit(ctx.expr()[0])
 
 
-    # Visit a parse tree produced by echoParser#Variable.
-    def visitVariable(self, ctx:echoParser.VariableContext):
-        # print('#Variable')
-        return GetVariable(ctx.getText())
 
-
-    # Visit a parse tree produced by echoParser#Parent.
-    def visitParent(self, ctx:echoParser.ParentContext):
-        # print('#Parent')
-        return self.visit(ctx.expr())
-
-
-    # Visit a parse tree produced by echoParser#TypeExpr.
-    def visitTypeExpr(self, ctx:echoParser.TypeExprContext):
-        # print('#typeExpr')
-        return self.visitChildren(ctx)
-
-
-    # Visit a parse tree produced by echoParser#OpExpr.
-    def visitOpExpr(self, ctx:echoParser.OpExprContext):
-        # print('#OpExpr')
-        num1 = self.visit(ctx.left)
-        num2 = self.visit(ctx.right)
-
-        op = ctx.op.text
-
-        if op == '+': return num1 + num2
-        elif op == '-': return num1 - num2
-        elif op == '*': return num1 * num2
-        elif op == '/': return num1 / num2
-        elif op == '**': return num1 ** num2
-        elif op == '<<': return num1 << num2
-        elif op == '>>': return num1 >> num2
-        return self.visitChildren(ctx)
 
     # ++++++++++++++++++++++++++++++
     # ++++---- IF STATEMENT ----++++
@@ -210,7 +179,8 @@ class echoVisitorMain(echoVisitor):
 
             print(ifscopeIndex)
             print(currentScope.index('if'))
-            if ifscopeIndex == currentScope.index('if'): self.ExecuteIfStatement(ifscope, ifscopeIndex)
+            # if ifscopeIndex == currentScope.index('if'): self.ExecuteIfStatement(ifscope, ifscopeIndex)
+            if ifscopeIndex == 1: self.ExecuteIfStatement(ifscope, ifscopeIndex)
             else:
 
                 #TODO Nested if statements aren't correctly functioning with an elif. Fix it
@@ -218,12 +188,15 @@ class echoVisitorMain(echoVisitor):
                 previousScope[0].append({'if':ifscope})
                 print(previousScope)
 
-                PopScope()
+                while len(currentScope) != ifscopeIndex: PopScope()
+
+
 
                 print(previousScope)
                 #print("\n".join("{}\t{}".format(k, v) for k, v in previousScope.items()))
 
                 print('Scope is ' + str(currentScope))
+                print(GetCurrentScope())
 
                 # print(previousIfscope)
 
@@ -246,6 +219,8 @@ class echoVisitorMain(echoVisitor):
         max = forscope[2]
         step = forscope[3]
 
+        print((iter,max,step))
+
         if (step > 0 and iter < max) or (step < 0 and iter > max):
             self.ExecuteBlockInstructions(forscope[0])
 
@@ -257,12 +232,9 @@ class echoVisitorMain(echoVisitor):
 
     # TODO : Replace NEXT keyword with STEP for next parser compile
 
-    # TODO : Support IF statements inside FOR loops
+    # TODO : Support IF statements inside FOR loops (Works for a single IF block)
 
-    # Visit a parse tree produced by echoParser#ForBlock.
-    def visitForBlock(self, ctx:echoParser.ForBlockContext):
-        print('#ForBlock')
-
+    def prepareForBlock(self, ctx, step=1):
         var = ctx.iter_.VAR().getText()
         value = self.visit(ctx.iter_.expr())
         max = self.visit(ctx.max_)
@@ -287,15 +259,20 @@ class echoVisitorMain(echoVisitor):
             raise Exception('Final value must be a number!')
 
         # Step
-        forscope[3] = 1
+        forscope[3] = step
 
 
         return self.visitChildren(ctx)
+
+    # Visit a parse tree produced by echoParser#ForBlock.
+    def visitForBlock(self, ctx:echoParser.ForBlockContext):
+        print('#ForBlock')
+        return self.prepareForBlock(ctx)
 
     # Visit a parse tree produced by echoParser#ForNextBlock.
     def visitForNextBlock(self, ctx:echoParser.ForNextBlockContext):
         print('#ForNextBlock')
-        return self.visitChildren(ctx)
+        return self.prepareForBlock(ctx, self.visit(ctx.next_))
 
 
     # Visit a parse tree produced by echoParser#EndForBlock.
@@ -307,8 +284,84 @@ class echoVisitorMain(echoVisitor):
         # Last index of for
         forscopeIndex = len(currentScope) - currentScope[::-1].index('for') - 1
 
-        self.ExecuteForStatement(GetScopeAt(forscopeIndex), forscopeIndex)
+        forscope = GetScopeAt(forscopeIndex)
+        forscope[4] = forscopeIndex
 
+        if forscopeIndex == 1: self.ExecuteForStatement(forscope, forscopeIndex)
+        else:
+            previousScope = GetScopeAt(forscopeIndex-1)
+            previousScope[0].append({'for':forscope})
+            print(previousScope)
+
+            while len(currentScope) != forscopeIndex: PopScope()
+
+        #self.ExecuteForStatement(GetScopeAt(forscopeIndex), forscopeIndex)
+
+        return self.visitChildren(ctx)
+
+    # ++++++++++++++++++++++++++++
+    # +++++---- FUNCTION ----+++++
+    # ++++++++++++++++++++++++++++
+
+    # Visit a parse tree produced by echoParser#FunctionBlock.
+    def visitFunctionBlock(self, ctx:echoParser.FunctionBlockContext):
+        print('#FunctionBlock')
+
+        AddScope('func')
+
+    # Visit a parse tree produced by echoParser#EndFunctionBlock.
+    def visitEndFunctionBlock(self, ctx:echoParser.EndFunctionBlockContext):
+        print('#EndFunctionBlock')
+        return self.visitChildren(ctx)
+
+    # Visit a parse tree produced by echoParser#func.
+    def visitFunc(self, ctx:echoParser.FuncContext):
+        print('#FuncBlock')
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#return.
+    def visitReturn(self, ctx:echoParser.ReturnContext):
+        print('#ReturnBlock')
+        return self.visitChildren(ctx)
+
+    # ++++++++++++++++++++++++++++
+    # ++++---- EXPRESSION ----++++
+    # ++++++++++++++++++++++++++++
+
+    # Visit a parse tree produced by echoParser#Variable.
+    def visitVariable(self, ctx:echoParser.VariableContext):
+        # print('#Variable')
+        return GetVariable(ctx.getText())
+
+
+    # Visit a parse tree produced by echoParser#Parent.
+    def visitParent(self, ctx:echoParser.ParentContext):
+        # print('#Parent')
+        return self.visit(ctx.expr())
+
+
+    # Visit a parse tree produced by echoParser#TypeExpr.
+    def visitTypeExpr(self, ctx:echoParser.TypeExprContext):
+        # print('#typeExpr')
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by echoParser#OpExpr.
+    def visitOpExpr(self, ctx:echoParser.OpExprContext):
+        # print('#OpExpr')
+        num1 = self.visit(ctx.left)
+        num2 = self.visit(ctx.right)
+
+        op = ctx.op.text
+
+        if op == '+': return num1 + num2
+        elif op == '-': return num1 - num2
+        elif op == '*': return num1 * num2
+        elif op == '/': return num1 / num2
+        elif op == '**': return num1 ** num2
+        elif op == '<<': return num1 << num2
+        elif op == '>>': return num1 >> num2
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by echoParser#CompExpr.
