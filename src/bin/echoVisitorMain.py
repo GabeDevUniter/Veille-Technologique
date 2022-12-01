@@ -214,6 +214,8 @@ class echoVisitorMain(echoVisitor):
     # ++++---- FOR LOOP ----++++
     # ++++++++++++++++++++++++++
 
+    # TODO : Support nested for loops
+
     def ExecuteForStatement(self, forscope, forscopeIndex):
         iter = forscope[forscope[1]][1]
         max = forscope[2]
@@ -270,9 +272,9 @@ class echoVisitorMain(echoVisitor):
         return self.prepareForBlock(ctx)
 
     # Visit a parse tree produced by echoParser#ForNextBlock.
-    def visitForNextBlock(self, ctx:echoParser.ForNextBlockContext):
-        print('#ForNextBlock')
-        return self.prepareForBlock(ctx, self.visit(ctx.next_))
+    def visitForStepBlock(self, ctx:echoParser.ForStepBlockContext):
+        print('#ForStepBlock')
+        return self.prepareForBlock(ctx, self.visit(ctx.step))
 
 
     # Visit a parse tree produced by echoParser#EndForBlock.
@@ -303,15 +305,26 @@ class echoVisitorMain(echoVisitor):
     # +++++---- FUNCTION ----+++++
     # ++++++++++++++++++++++++++++
 
+    def ExecuteFunction(self, funcName):
+        self.ExecuteBlockInstructions(forscope[0])
+
     # Visit a parse tree produced by echoParser#FunctionBlock.
     def visitFunctionBlock(self, ctx:echoParser.FunctionBlockContext):
         print('#FunctionBlock')
 
         AddScope('func')
 
+        funcScope = GetCurrentScope()
+
+        funcScope['label'] = ctx.func().VAR().getText()
+        funcScope['params'] = ctx.func().expr()
+
     # Visit a parse tree produced by echoParser#EndFunctionBlock.
     def visitEndFunctionBlock(self, ctx:echoParser.EndFunctionBlockContext):
         print('#EndFunctionBlock')
+
+        AddFunction(GetCurrentScope())
+
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by echoParser#func.
@@ -323,6 +336,9 @@ class echoVisitorMain(echoVisitor):
     # Visit a parse tree produced by echoParser#return.
     def visitReturn(self, ctx:echoParser.ReturnContext):
         print('#ReturnBlock')
+
+        funcScope['returnValue'] = ctx.expr()
+
         return self.visitChildren(ctx)
 
     # ++++++++++++++++++++++++++++
