@@ -18,14 +18,17 @@ functionTemplate = {
 0: [], # Block instructions
 'label': None,
 'params': None,
-'returnType': None
+'returnType': None,
+'returnValue': None
 }
 
 functionReturnTypes = {'void':'void'}
 functionReturnTypes.update(types)
 
+def AddFunction(scope):
+    functions[label] = scope.copy()
 
-def AddFunction(label, params=None, returnType='void'):
+def AddFunctionFromTemplate(label, params=None, returnType='void'):
     newFunction = functionTemplate.copy()
 
     newFunction['label'] = label
