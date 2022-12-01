@@ -1,6 +1,42 @@
 
 variables = {}
 
+types = {
+'int':int,
+'float':float,
+'string':str,
+'str':str,
+'bool':bool,
+}
+
+def ConvertValue(type, value):
+    return types[type](value)
+
+functions = {}
+
+functionTemplate = {
+0: [], # Block instructions
+'label': None,
+'params': None,
+'returnType': None
+}
+
+functionReturnTypes = {'void':'void'}
+functionReturnTypes.update(types)
+
+
+def AddFunction(label, params=None, returnType='void'):
+    newFunction = functionTemplate.copy()
+
+    newFunction['label'] = label
+    newFunction['params'] = params
+    newFunction['returnType'] = returnType
+
+    functions[label] = newFunction
+
+def CallFunction(label):
+    pass
+
 # index 0 in scopes is a list of instructions to execute within the scope
 # (useful for IF and FOR scopes)
 scopes = {
@@ -109,8 +145,8 @@ def GetVariable(var):
     except (KeyError, TypeError):
         raise Exception('Variable %s is not defined.' % var)
 
-# def IsDefined(var):
-#     return FindVariable(var) != None
+def IsDefined(var):
+    return FindVariable(var) != None
 
 def DeclareVariable(type, var, value):
     value = ConvertValue(type, value)
@@ -128,15 +164,3 @@ def AssignVariable(var, value):
         var[1] = value
     except (KeyError, TypeError):
         raise Exception('Variable %s is not defined.' % var)
-
-
-types = {
-'int':int,
-'float':float,
-'string':str,
-'str':str,
-'bool':bool,
-}
-
-def ConvertValue(type, value):
-    return types[type](value)
