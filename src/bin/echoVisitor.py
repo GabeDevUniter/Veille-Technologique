@@ -79,8 +79,8 @@ class echoVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
-    # Visit a parse tree produced by echoParser#ForNextBlock.
-    def visitForNextBlock(self, ctx:echoParser.ForNextBlockContext):
+    # Visit a parse tree produced by echoParser#ForStepBlock.
+    def visitForStepBlock(self, ctx:echoParser.ForStepBlockContext):
         return self.visitChildren(ctx)
 
 

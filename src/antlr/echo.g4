@@ -24,7 +24,7 @@ block: 'if' expr # IfBlock
      | 'endif' # EndIfBlock
 
      | 'for' iter=assign_new 'to' max=expr # ForBlock
-     | 'for' iter=assign_new 'to' max=expr 'next' next=expr # ForNextBlock
+     | 'for' iter=assign_new 'to' max=expr 'step' step=expr # ForStepBlock
      | 'endfor' # EndForBlock
      | 'function' func # FunctionBlock
      | 'endfunction' # EndFunctionBlock
@@ -57,7 +57,7 @@ assign_op: '=' | '+=' | '-=' | '*=' | '/=' | '**=';
 
 /**-------FUNCTIONS-------**/
 func: VAR '(' (expr (',' expr)*)* ')';
-return: 'return' (expr)*;
+return: 'return' expr | 'return';
 
 
 /**-------VARIABLES-------**/

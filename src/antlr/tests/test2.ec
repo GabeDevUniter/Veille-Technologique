@@ -58,7 +58,7 @@ for i = -5 to abs(-10)
 
 endfor
 
-for i = abs(-2) to 20 next a+2
+for i = abs(-2) to 20 step a+2
 
 print("Hello " + i);
 
