@@ -10,6 +10,7 @@ if __name__ == "__main__":
     print(f'//------ Echo {EchoVersion} ------\\\\\n\n')
     while 1:
         shellInput = input('> ')
+        if shellInput == '': continue
         if shellInput == 'exit' or shellInput == 'quit': break
         if shellInput[-1] != ';' and not shellInput.startswith(('if', 'elif', 'else', 'for', 'endfor', 'endif')): shellInput += ';'
 
