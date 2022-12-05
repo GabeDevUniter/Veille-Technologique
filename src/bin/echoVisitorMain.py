@@ -30,7 +30,7 @@ class echoVisitorMain(echoVisitor):
         return self.visit(ctx.expr()[0])
 
     def ExecuteBlockInstructions(self, list):
-        print('Executing Block')
+        #print('Executing Block')
         for ins in list:
             if type(ins) == dict:
                 if 'if' in ins: self.ExecuteIfStatement(ins['if'], ins['if'][2])
@@ -40,13 +40,16 @@ class echoVisitorMain(echoVisitor):
                 self.ExecuteInstruction(ins)
 
     def visitProg(self, ctx:echoParser.ProgContext):
-        # print(currentScope)
+        # #print(currentScope)
+
+        # TODO : Separate the blocks from their 'end' syntaxes in echo.g4 to facilite regular/block instruction processing
 
         if currentScope[-1] == 'global' or ctx.block() != []:
-            print('-- Regular Instruction')
+        # if currentScope[-1] == 'global':
+            #print('-- Regular Instruction')
             return self.ExecuteInstruction(ctx)
         else:
-            print('-- Block Instruction')
+            #print('-- Block Instruction')
             scope = GetCurrentScope()
             if 0 not in scope: scope[0] = []
             scope[0].append(ctx)
@@ -92,7 +95,7 @@ class echoVisitorMain(echoVisitor):
             finally:
                 global currentScope
                 while len(currentScope) != ifscopeIndex: PopScope()
-                print('Scope is ' + str(currentScope))
+                #print('Scope is ' + str(currentScope))
 
         else:
             if hasElif: self.ExecuteIfStatement(ifscope['elif'], ifscopeIndex) # Recursive
@@ -107,13 +110,13 @@ class echoVisitorMain(echoVisitor):
                     raise
                 finally:
                     while len(currentScope) != ifscopeIndex: PopScope()
-                    print('Scope is ' + str(currentScope))
+                    #print('Scope is ' + str(currentScope))
             else:
                 while len(currentScope) != ifscopeIndex: PopScope()
 
     # Visit a parse tree produced by echoParser#IfBlock.
     def visitIfBlock(self, ctx:echoParser.IfBlockContext):
-        print('#IfBlock')
+        #print('#IfBlock')
 
         # if type(cond) != bool: raise Exception('IF statement must be a condition!')
         if type(ctx.expr()).__name__ != 'CompExprContext': raise Exception('IF statement must be a condition!')
@@ -128,7 +131,7 @@ class echoVisitorMain(echoVisitor):
 
     # Visit a parse tree produced by echoParser#ElifBlock.
     def visitElifBlock(self, ctx:echoParser.ElifBlockContext):
-        print('#ElifBlock')
+        #print('#ElifBlock')
 
         if currentScope[-1] not in ['if', 'elif']: raise Exception('ELIF must succeed an IF or ELIF statement!')
 
@@ -147,7 +150,7 @@ class echoVisitorMain(echoVisitor):
 
     # Visit a parse tree produced by echoParser#ElseBlock.
     def visitElseBlock(self, ctx:echoParser.ElseBlockContext):
-        print('#ElseBlock')
+        #print('#ElseBlock')
 
         if currentScope[-1] not in ['if', 'elif']: raise Exception('ELSE must succeed an IF or ELIF statement!')
 
@@ -160,7 +163,7 @@ class echoVisitorMain(echoVisitor):
 
     # Visit a parse tree produced by echoParser#EndIfBlock.
     def visitEndIfBlock(self, ctx:echoParser.EndIfBlockContext):
-        print('#EndIfBlock')
+        #print('#EndIfBlock')
 
         # Get the last index of 'if' in negative value
         #ifscopeIndex = currentScope[::-1].index('if') * -1 - 1
@@ -170,15 +173,15 @@ class echoVisitorMain(echoVisitor):
 
         if currentScope[-1] not in ['if', 'elif', 'else']: raise Exception('ENDIF must  succeed an IF, ELIF or ELSE statement')
 
-        print('Scope is ' + str(currentScope))
+        #print('Scope is ' + str(currentScope))
 
         try:
             ifscope = GetScopeAt(ifscopeIndex)
 
             ifscope[2] = ifscopeIndex
 
-            print(ifscopeIndex)
-            print(currentScope.index('if'))
+            #print(ifscopeIndex)
+            #print(currentScope.index('if'))
             # if ifscopeIndex == currentScope.index('if'): self.ExecuteIfStatement(ifscope, ifscopeIndex)
             if ifscopeIndex == 1: self.ExecuteIfStatement(ifscope, ifscopeIndex)
             else:
@@ -186,19 +189,19 @@ class echoVisitorMain(echoVisitor):
                 #TODO Nested if statements aren't correctly functioning with an elif. Fix it
                 previousScope = GetScopeAt(ifscopeIndex-1)
                 previousScope[0].append({'if':ifscope})
-                print(previousScope)
+                #print(previousScope)
 
                 while len(currentScope) != ifscopeIndex: PopScope()
 
 
 
-                print(previousScope)
-                #print("\n".join("{}\t{}".format(k, v) for k, v in previousScope.items()))
+                #print(previousScope)
+                ##print("\n".join("{}\t{}".format(k, v) for k, v in previousScope.items()))
 
-                print('Scope is ' + str(currentScope))
-                print(GetCurrentScope())
+                #print('Scope is ' + str(currentScope))
+                #print(GetCurrentScope())
 
-                # print(previousIfscope)
+                # #print(previousIfscope)
 
         except Exception as e:
             print(str(e))
@@ -221,7 +224,7 @@ class echoVisitorMain(echoVisitor):
         max = forscope[2]
         step = forscope[3]
 
-        print((iter,max,step))
+        #print((iter,max,step))
 
         if (step > 0 and iter < max) or (step < 0 and iter > max):
             self.ExecuteBlockInstructions(forscope[0])
@@ -268,18 +271,18 @@ class echoVisitorMain(echoVisitor):
 
     # Visit a parse tree produced by echoParser#ForBlock.
     def visitForBlock(self, ctx:echoParser.ForBlockContext):
-        print('#ForBlock')
+        #print('#ForBlock')
         return self.prepareForBlock(ctx)
 
     # Visit a parse tree produced by echoParser#ForNextBlock.
     def visitForStepBlock(self, ctx:echoParser.ForStepBlockContext):
-        print('#ForStepBlock')
+        #print('#ForStepBlock')
         return self.prepareForBlock(ctx, self.visit(ctx.step))
 
 
     # Visit a parse tree produced by echoParser#EndForBlock.
     def visitEndForBlock(self, ctx:echoParser.EndForBlockContext):
-        print('#EndForBlock')
+        #print('#EndForBlock')
 
         if currentScope[-1] != 'for': raise Exception('ENDFOR must succeed a FOR statement')
 
@@ -293,7 +296,7 @@ class echoVisitorMain(echoVisitor):
         else:
             previousScope = GetScopeAt(forscopeIndex-1)
             previousScope[0].append({'for':forscope})
-            print(previousScope)
+            #print(previousScope)
 
             while len(currentScope) != forscopeIndex: PopScope()
 
@@ -306,11 +309,15 @@ class echoVisitorMain(echoVisitor):
     # ++++++++++++++++++++++++++++
 
     def ExecuteFunction(self, funcName):
-        self.ExecuteBlockInstructions(forscope[0])
+        for ins in functions[funcName][0]:
+            if type(ins).__name__ == 'ReturnContext':
+                return self.visit(ins)
+
+        return None
 
     # Visit a parse tree produced by echoParser#FunctionBlock.
     def visitFunctionBlock(self, ctx:echoParser.FunctionBlockContext):
-        print('#FunctionBlock')
+        #print('#FunctionBlock')
 
         AddScope('func')
 
@@ -321,25 +328,27 @@ class echoVisitorMain(echoVisitor):
 
     # Visit a parse tree produced by echoParser#EndFunctionBlock.
     def visitEndFunctionBlock(self, ctx:echoParser.EndFunctionBlockContext):
-        print('#EndFunctionBlock')
+        #print('#EndFunctionBlock')
 
         AddFunction(GetCurrentScope())
+
+        PopScope()
 
         return self.visitChildren(ctx)
 
     # Visit a parse tree produced by echoParser#func.
     def visitFunc(self, ctx:echoParser.FuncContext):
-        print('#FuncBlock')
-        return self.visitChildren(ctx)
+        #print('#FuncBlock')
+        return self.ExecuteFunction(ctx.VAR().getText())
 
 
     # Visit a parse tree produced by echoParser#return.
     def visitReturn(self, ctx:echoParser.ReturnContext):
-        print('#ReturnBlock')
+        #print('#ReturnBlock')
 
-        funcScope['returnValue'] = ctx.expr()
+        # funcScope['returnValue'] = None if 'expr' not in dir(ctx) else ctx.expr()
 
-        return self.visitChildren(ctx)
+        return None if 'expr' not in dir(ctx) else ctx.expr()
 
     # ++++++++++++++++++++++++++++
     # ++++---- EXPRESSION ----++++
@@ -347,7 +356,7 @@ class echoVisitorMain(echoVisitor):
 
     # Visit a parse tree produced by echoParser#Variable.
     def visitVariable(self, ctx:echoParser.VariableContext):
-        # print('#Variable')
+        # #print('#Variable')
         return GetVariable(ctx.getText())
 
 
@@ -500,7 +509,7 @@ class echoVisitorMain(echoVisitor):
 
     # Visit a parse tree produced by echoParser#AssignInc.
     def visitAssignInc(self, ctx:echoParser.AssignIncContext):
-        print('#AssignInc')
+        #print('#AssignInc')
 
         var = ctx.VAR().getText()
         varValue = GetVariable(var)
@@ -516,7 +525,7 @@ class echoVisitorMain(echoVisitor):
 
     # Visit a parse tree produced by echoParser#AssignDec.
     def visitAssignDec(self, ctx:echoParser.AssignDecContext):
-        print('#AssignDec')
+        #print('#AssignDec')
 
         var = ctx.VAR().getText()
         varValue = GetVariable(var)
