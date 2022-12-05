@@ -26,7 +26,7 @@ functionReturnTypes = {'void':'void'}
 functionReturnTypes.update(types)
 
 def AddFunction(scope):
-    functions[label] = scope.copy()
+    functions[scope['label']] = scope.copy()
 
 def AddFunctionFromTemplate(label, params=None, returnType='void'):
     newFunction = functionTemplate.copy()
