@@ -12,7 +12,7 @@ if __name__ == "__main__":
         shellInput = input('> ')
         if shellInput == '': continue
         if shellInput == 'exit' or shellInput == 'quit': break
-        if shellInput[-1] != ';' and not shellInput.startswith(('if', 'elif', 'else', 'for', 'endfor', 'endif')): shellInput += ';'
+        if shellInput[-1] != ';' and not shellInput.startswith(('if', 'elif', 'else', 'for', 'endfor', 'endif', 'function', 'endfunction')): shellInput += ';'
 
         data = InputStream(shellInput)
         # lexer
